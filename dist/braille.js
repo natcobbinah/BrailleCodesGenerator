@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.BrailleCodeGenerator = void 0;
 class BrailleCodeGenerator {
     constructor() {
+        //used [method chaining] to implement addBrailleCode
         this.brailleCodesMap = new Map();
         this.userEnteredBrailleCodes = new Map();
         this.outputResult = "";
@@ -33,9 +34,17 @@ class BrailleCodeGenerator {
             .set("y", ["● ●", ". ●", "● ●"])
             .set("z", ["● .", ". ●", "● ●"]);
     }
+    /**
+     * @returns String output after encoded or decoded operation
+     */
     output() {
         return console.log(this.outputResult);
     }
+    /**
+     *
+     * @param message Pass a sentence or word as an arugment to the fxn(convertToBraille)
+     * and have it converted to BrailleCode Characters
+     */
     convertToBraille(message) {
         let sentence = message.split("");
         sentence.forEach((letter) => {
@@ -50,14 +59,27 @@ class BrailleCodeGenerator {
             console.log("");
         });
     }
+    /**
+     *
+     * @param brailleCodeExpression Array argument which takes (3) strings to
+     * and add it to a Map which would be decoded to to Alphabetic Character
+     * @returns  A Map of String Array
+     */
     addBrailleCode(brailleCodeExpression) {
         this.userEnteredBrailleCodes.set(BrailleCodeGenerator.brailleCodeCount++, brailleCodeExpression);
         return this;
     }
+    /**
+     * @returns An Map of empty String array to allow for
+     * formatting output
+     */
     space() {
         this.userEnteredBrailleCodes.set("", "  ");
         return this;
     }
+    /**
+     * @returns  Alphabetic Character of keyed in BrailleCodes
+     */
     converToCharacterString() {
         let brailleCharactersArray = [];
         let spaceChar = "";
@@ -75,22 +97,4 @@ class BrailleCodeGenerator {
 }
 exports.BrailleCodeGenerator = BrailleCodeGenerator;
 BrailleCodeGenerator.brailleCodeCount = 0;
-let braille = new BrailleCodeGenerator();
-braille.convertToBraille("you and me");
-braille
-    .addBrailleCode(["● .", "● ●", ". ."])
-    .addBrailleCode(["● .", ". ●", ". ."])
-    .addBrailleCode(["● .", "● .", "● ."])
-    .addBrailleCode(["● .", "● .", "● ."])
-    .addBrailleCode(["● .", ". ●", "● ."])
-    .space()
-    .addBrailleCode(["● ●", "● .", ". ."])
-    .addBrailleCode(["● .", "● ●", "● ."])
-    .addBrailleCode([". ●", "● .", ". ."])
-    .addBrailleCode(["● .", ". ●", ". ."])
-    .addBrailleCode(["● ●", ". ●", "● ."])
-    .addBrailleCode(["● ●", ". ●", ". ."])
-    .addBrailleCode([". ●", "● .", "● ."])
-    .converToCharacterString()
-    .output();
 //# sourceMappingURL=braille.js.map

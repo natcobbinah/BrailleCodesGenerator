@@ -1,4 +1,6 @@
 export class BrailleCodeGenerator {
+  //used [method chaining] to implement addBrailleCode
+
   brailleCodesMap = new Map();
   userEnteredBrailleCodes = new Map();
   outputResult: string = "";
@@ -33,10 +35,18 @@ export class BrailleCodeGenerator {
       .set("z", ["● .", ". ●", "● ●"]);
   }
 
+  /**
+   * @returns String output after encoded or decoded operation
+   */
   output() {
     return console.log(this.outputResult);
   }
 
+  /**
+   *
+   * @param message Pass a sentence or word as an arugment to the fxn(convertToBraille)
+   * and have it converted to BrailleCode Characters
+   */
   convertToBraille(message: string) {
     let sentence = message.split("");
     sentence.forEach((letter) => {
@@ -52,6 +62,12 @@ export class BrailleCodeGenerator {
     });
   }
 
+  /**
+   *
+   * @param brailleCodeExpression Array argument which takes (3) strings to
+   * and add it to a Map which would be decoded to to Alphabetic Character
+   * @returns  A Map of String Array
+   */
   addBrailleCode(brailleCodeExpression: [string, string, string]) {
     this.userEnteredBrailleCodes.set(
       BrailleCodeGenerator.brailleCodeCount++,
@@ -60,11 +76,18 @@ export class BrailleCodeGenerator {
     return this;
   }
 
+  /**
+   * @returns An Map of empty String array to allow for
+   * formatting output
+   */
   space() {
     this.userEnteredBrailleCodes.set("", "  ");
     return this;
   }
 
+  /**
+   * @returns  Alphabetic Character of keyed in BrailleCodes
+   */
   converToCharacterString() {
     let brailleCharactersArray: Array<String> = [];
     let spaceChar = "";
@@ -81,23 +104,3 @@ export class BrailleCodeGenerator {
     return this;
   }
 }
-
-let braille = new BrailleCodeGenerator();
-braille.convertToBraille("you and me");
-
-braille
-  .addBrailleCode(["● .", "● ●", ". ."])
-  .addBrailleCode(["● .", ". ●", ". ."])
-  .addBrailleCode(["● .", "● .", "● ."])
-  .addBrailleCode(["● .", "● .", "● ."])
-  .addBrailleCode(["● .", ". ●", "● ."])
-  .space()
-  .addBrailleCode(["● ●", "● .", ". ."])
-  .addBrailleCode(["● .", "● ●", "● ."])
-  .addBrailleCode([". ●", "● .", ". ."])
-  .addBrailleCode(["● .", ". ●", ". ."])
-  .addBrailleCode(["● ●", ". ●", "● ."])
-  .addBrailleCode(["● ●", ". ●", ". ."])
-  .addBrailleCode([". ●", "● .", "● ."])
-  .converToCharacterString()
-  .output();

@@ -1,0 +1,322 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>braille-code-generator</title>
+	<meta name="description" content="Documentation for braille-code-generator">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">braille-code-generator</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>braille-code-generator</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#braillecodesgenerator" id="braillecodesgenerator" style="color: inherit; text-decoration: none;">
+					<h1>BrailleCodesGenerator</h1>
+				</a>
+				<p>Converts characters to brailleCode format and vice versa</p>
+				<p>One major obstacle in the education of the blind is, of course, their inability to read printed books.
+					Valentin Haüy (1745–1822), the founder of the Paris school, had invented a system of raised letters on paper
+					that could be read by touch. But this system was very difficult to use, and only a few books had been produced
+				using this method.</p>
+				<p>The sighted Haüy was stuck in a paradigm. To him, an A was an A was an A, and the letter A must look (or feel) like an A</p>
+				<p>The origins of an alternative type of code came from an unexpected source. Charles Barbier, a captain of the French army,
+					had by 1819 devised a system of writing he called écriture nocturne, or &quot;night writing.&quot; This system used a pattern of
+					raised dots and dashes on heavy paper and was intended for use by soldiers in passing notes to each other in the dark when
+					quiet was necessary. The soldiers were able to poke these dots and dashes into the back of the paper using an awl-like stylus.
+				The raised dots could then be read with the fingers.</p>
+				<p>The problem with Barbier&#39;s system is that it was quite complex. Rather than using patterns of dots and dashes that corresponded
+					to letters of the alphabet, Barbier devised patterns that corresponded to sounds, often requiring many codes for a single word.
+				The system worked fine for short messages in the field but was distinctly inadequate for longer texts, let alone entire books.</p>
+				<p>Louis Braille became familiar with Barbier&#39;s system at the age of 12. He liked the use of raised dots, not only because it
+					proved easy to read with the fingers but also because it was easy to write. A student in the classroom equipped with paper
+					and a stylus could actually take notes and read them back. Louis Braille diligently tried to improve the system and within
+					three years (at the age of 15) had come up with his own, the basics of which are still used today. For many years, the system
+					was known only within the school, but it gradually made its way to the rest of the world. In 1835, Louis Braille contracted
+				tuberculosis, which would eventually kill him shortly after his 43rd birthday in 1852.</p>
+				<p>Today, enhanced versions of the Braille system compete with tape-recorded books for providing the blind with access to the written
+					word, but Braille still remains an invaluable system and the only way to read for people who are both blind and deaf.
+					In recent years, Braille has become more familiar in the public arena as elevators and automatic teller machines are made
+				more accessible to the blind.</p>
+				<p>In Braille, every symbol used in normal written language—specifically, letters, numbers, and punctuation marks—is encoded as one
+				or more raised dots within a two-by-three cell. The dots of the cell are commonly numbered 1 through 6:</p>
+				<pre><code><span style="color: #000000"> -----------</span>
+<span style="color: #098658">1</span><span style="color: #000000">|    |    |</span><span style="color: #098658">4</span>
+<span style="color: #000000"> -----------</span>
+<span style="color: #098658">2</span><span style="color: #000000">|    |    |</span><span style="color: #098658">5</span>
+<span style="color: #000000"> -----------</span>
+<span style="color: #098658">3</span><span style="color: #000000">|    |    |</span><span style="color: #098658">6</span>
+<span style="color: #000000"> -----------</span>
+</code></pre>
+				<p> What should be interesting to us at this point is that the dots are binary. A particular dot is either flat or raised.
+					That means we can apply what we&#39;ve learned about Morse code and combinatorial analysis to Braille. We know that there are 6 dots
+					and that each dot can be either flat or raised, so the total number of combinations of 6 flat and raised dots is 2 x 2 x 2 x 2 x 2 x 2,
+				or 26, or 64.</p>
+				<p>##Braille, let&#39;s look at the basic lowercase alphabet</p>
+				<a href="#every-alphabet-representation-needs-to-be-tranposed-in-vertical--form-to-see-the-the-actual-graphical-representation" id="every-alphabet-representation-needs-to-be-tranposed-in-vertical--form-to-see-the-the-actual-graphical-representation" style="color: inherit; text-decoration: none;">
+					<h6>Every alphabet representation needs to be <strong>tranposed in vertical</strong>  form to see the the actual graphical representation</h6>
+				</a>
+				<pre><code><span style="color: #000000">   </span><span style="color: #A31515">&quot;a&quot;</span><span style="color: #000000"> =  [</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;b&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;c&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;d&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;e&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;f&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;g&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;h&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;i&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;j&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;k&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;l&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;m&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;n&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;o&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;p&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;q&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;r&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;s&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;t&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;u&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;v&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;x&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;y&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">   </span><span style="color: #A31515">&quot;z&quot;</span><span style="color: #000000"> = [</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">]);</span>
+<span style="color: #000000">   </span>
+</code></pre>
+				<a href="#using-classes-in-the-package" id="using-classes-in-the-package" style="color: inherit; text-decoration: none;">
+					<h2>Using classes in the package</h2>
+				</a>
+				<a href="#javascript" id="javascript" style="color: inherit; text-decoration: none;">
+					<h6>Javascript</h6>
+				</a>
+				<pre><code><span style="color: #000000">  </span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">brailleCode</span><span style="color: #000000"> = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;braille-code-generator&#039;</span><span style="color: #000000">)</span>
+<span style="color: #000000">  </span><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">results</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #001080">brailleCode</span><span style="color: #000000">.</span><span style="color: #795E26">BrailleCodeGenerator</span><span style="color: #000000">();</span>
+
+<span style="color: #000000">  </span><span style="color: #008000">//convert from Alphabet Characters to Braille Characters</span>
+<span style="color: #000000">  </span><span style="color: #001080">results</span><span style="color: #000000">.</span><span style="color: #795E26">convertToBraille</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;you and me&quot;</span><span style="color: #000000">);</span>
+
+<span style="color: #000000">  </span><span style="color: #008000">//decode from Braille Characters to Alphabet Characters</span>
+<span style="color: #000000">  </span><span style="color: #001080">braille</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">space</span><span style="color: #000000">()</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">converToCharacterString</span><span style="color: #000000">()</span>
+<span style="color: #000000">    .</span><span style="color: #795E26">output</span><span style="color: #000000">();</span>
+
+<span style="color: #000000">     ######</span><span style="color: #0070C1">OUTPUT</span>
+<span style="color: #000000">     </span><span style="color: #001080">y</span>
+<span style="color: #000000">     ● ●</span>
+<span style="color: #000000">     . ●</span>
+<span style="color: #000000">     ● ●</span>
+
+<span style="color: #000000">     </span><span style="color: #001080">o</span>
+<span style="color: #000000">     ● .</span>
+<span style="color: #000000">     . ●</span>
+<span style="color: #000000">     ● .</span>
+
+<span style="color: #000000">     </span><span style="color: #001080">u</span>
+<span style="color: #000000">     ● .</span>
+<span style="color: #000000">     . .</span>
+<span style="color: #000000">     ● ●</span>
+
+
+<span style="color: #000000">     </span><span style="color: #001080">a</span>
+<span style="color: #000000">     ● .</span>
+<span style="color: #000000">     . .</span>
+<span style="color: #000000">     . .</span>
+
+<span style="color: #000000">     </span><span style="color: #001080">n</span>
+<span style="color: #000000">     ● ●</span>
+<span style="color: #000000">     . ●</span>
+<span style="color: #000000">     ● .</span>
+
+<span style="color: #000000">     </span><span style="color: #001080">d</span>
+<span style="color: #000000">     ● ●</span>
+<span style="color: #000000">     . ●</span>
+<span style="color: #000000">     . .</span>
+
+
+<span style="color: #000000">     </span><span style="color: #001080">m</span>
+<span style="color: #000000">     ● ●</span>
+<span style="color: #000000">     . .</span>
+<span style="color: #000000">     ● .</span>
+
+<span style="color: #000000">     </span><span style="color: #001080">e</span>
+<span style="color: #000000">     ● .</span>
+<span style="color: #000000">     . ●</span>
+<span style="color: #000000">     . .</span>
+
+<span style="color: #000000">     </span><span style="color: #001080">h</span><span style="color: #000000">  </span><span style="color: #001080">e</span><span style="color: #000000">  </span><span style="color: #001080">l</span><span style="color: #000000">  </span><span style="color: #001080">l</span><span style="color: #000000">  </span><span style="color: #001080">o</span><span style="color: #000000">   </span><span style="color: #001080">f</span><span style="color: #000000">  </span><span style="color: #001080">r</span><span style="color: #000000">  </span><span style="color: #001080">i</span><span style="color: #000000">  </span><span style="color: #001080">e</span><span style="color: #000000">  </span><span style="color: #001080">n</span><span style="color: #000000">  </span><span style="color: #001080">d</span><span style="color: #000000">  </span><span style="color: #001080">s</span>
+</code></pre>
+				<a href="#typescript" id="typescript" style="color: inherit; text-decoration: none;">
+					<h6>TypeScript</h6>
+				</a>
+				<pre><code><span style="color: #000000">    </span><span style="color: #AF00DB">import</span><span style="color: #000000"> {</span><span style="color: #001080">BrailleCodeGenerator</span><span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;braille-code-generator&#039;</span><span style="color: #000000">;</span>
+<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">results</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">BrailleCodeGenerator</span><span style="color: #000000">();</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">//convert from Alphabet Characters to Braille Characters</span>
+<span style="color: #000000">    </span><span style="color: #001080">results</span><span style="color: #000000">.</span><span style="color: #795E26">convertToBraille</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;you and me&quot;</span><span style="color: #000000">);</span>
+
+<span style="color: #000000">    </span><span style="color: #008000">//decode from Braille Characters to Alphabet Characters</span>
+<span style="color: #000000">    </span><span style="color: #001080">braille</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">space</span><span style="color: #000000">()</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;● ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;. .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">addBrailleCode</span><span style="color: #000000">([</span><span style="color: #A31515">&quot;. ●&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">, </span><span style="color: #A31515">&quot;● .&quot;</span><span style="color: #000000">])</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">converToCharacterString</span><span style="color: #000000">()</span>
+<span style="color: #000000">      .</span><span style="color: #795E26">output</span><span style="color: #000000">();</span>
+
+<span style="color: #000000">    ######</span><span style="color: #0070C1">OUTPUT</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">y</span>
+<span style="color: #000000">    ● ●</span>
+<span style="color: #000000">    . ●</span>
+<span style="color: #000000">    ● ●</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">o</span>
+<span style="color: #000000">    ● .</span>
+<span style="color: #000000">    . ●</span>
+<span style="color: #000000">    ● .</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">u</span>
+<span style="color: #000000">    ● .</span>
+<span style="color: #000000">    . .</span>
+<span style="color: #000000">    ● ●</span>
+
+
+<span style="color: #000000">    </span><span style="color: #001080">a</span>
+<span style="color: #000000">    ● .</span>
+<span style="color: #000000">    . .</span>
+<span style="color: #000000">    . .</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">n</span>
+<span style="color: #000000">    ● ●</span>
+<span style="color: #000000">    . ●</span>
+<span style="color: #000000">    ● .</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">d</span>
+<span style="color: #000000">    ● ●</span>
+<span style="color: #000000">    . ●</span>
+<span style="color: #000000">    . .</span>
+
+
+<span style="color: #000000">    </span><span style="color: #001080">m</span>
+<span style="color: #000000">    ● ●</span>
+<span style="color: #000000">    . .</span>
+<span style="color: #000000">    ● .</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">e</span>
+<span style="color: #000000">    ● .</span>
+<span style="color: #000000">    . ●</span>
+<span style="color: #000000">    . .</span>
+
+<span style="color: #000000">    </span><span style="color: #001080">h</span><span style="color: #000000">  </span><span style="color: #001080">e</span><span style="color: #000000">  </span><span style="color: #001080">l</span><span style="color: #000000">  </span><span style="color: #001080">l</span><span style="color: #000000">  </span><span style="color: #001080">o</span><span style="color: #000000">   </span><span style="color: #001080">f</span><span style="color: #000000">  </span><span style="color: #001080">r</span><span style="color: #000000">  </span><span style="color: #001080">i</span><span style="color: #000000">  </span><span style="color: #001080">e</span><span style="color: #000000">  </span><span style="color: #001080">n</span><span style="color: #000000">  </span><span style="color: #001080">d</span><span style="color: #000000">  </span><span style="color: #001080">s</span>
+</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/BrailleCodeGenerator.html" class="tsd-kind-icon">Braille<wbr>Code<wbr>Generator</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
