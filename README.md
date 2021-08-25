@@ -33,13 +33,13 @@ more accessible to the blind.
 In Braille, every symbol used in normal written language—specifically, letters, numbers, and punctuation marks—is encoded as one
 or more raised dots within a two-by-three cell. The dots of the cell are commonly numbered 1 through 6:
 
- -----------
-1|    |    |4
- -----------
-2|    |    |5
- -----------
-3|    |    |6
- -----------
+     -----------
+    1|    |    |4
+     -----------
+    2|    |    |5
+     -----------
+    3|    |    |6
+     -----------
  
  What should be interesting to us at this point is that the dots are binary. A particular dot is either flat or raised.
  That means we can apply what we've learned about Morse code and combinatorial analysis to Braille. We know that there are 6 dots 
@@ -77,144 +77,144 @@ or more raised dots within a two-by-three cell. The dots of the cell are commonl
    
 ## Using classes in the package
 ###### Javascript
-let brailleCode = require('braille-code-generator')
-let results = new brailleCode.BrailleCodeGenerator();
+      let brailleCode = require('braille-code-generator')
+      let results = new brailleCode.BrailleCodeGenerator();
 
-//convert from Alphabet Characters to Braille Characters
-results.convertToBraille("you and me");
+      //convert from Alphabet Characters to Braille Characters
+      results.convertToBraille("you and me");
 
-//decode from Braille Characters to Alphabet Characters
-braille
-  .addBrailleCode(["● .", "● ●", ". ."])
-  .addBrailleCode(["● .", ". ●", ". ."])
-  .addBrailleCode(["● .", "● .", "● ."])
-  .addBrailleCode(["● .", "● .", "● ."])
-  .addBrailleCode(["● .", ". ●", "● ."])
-  .space()
-  .addBrailleCode(["● ●", "● .", ". ."])
-  .addBrailleCode(["● .", "● ●", "● ."])
-  .addBrailleCode([". ●", "● .", ". ."])
-  .addBrailleCode(["● .", ". ●", ". ."])
-  .addBrailleCode(["● ●", ". ●", "● ."])
-  .addBrailleCode(["● ●", ". ●", ". ."])
-  .addBrailleCode([". ●", "● .", "● ."])
-  .converToCharacterString()
-  .output();
+      //decode from Braille Characters to Alphabet Characters
+      braille
+        .addBrailleCode(["● .", "● ●", ". ."])
+        .addBrailleCode(["● .", ". ●", ". ."])
+        .addBrailleCode(["● .", "● .", "● ."])
+        .addBrailleCode(["● .", "● .", "● ."])
+        .addBrailleCode(["● .", ". ●", "● ."])
+        .space()
+        .addBrailleCode(["● ●", "● .", ". ."])
+        .addBrailleCode(["● .", "● ●", "● ."])
+        .addBrailleCode([". ●", "● .", ". ."])
+        .addBrailleCode(["● .", ". ●", ". ."])
+        .addBrailleCode(["● ●", ". ●", "● ."])
+        .addBrailleCode(["● ●", ". ●", ". ."])
+        .addBrailleCode([". ●", "● .", "● ."])
+        .converToCharacterString()
+        .output();
   
-######OUTPUT
-y
-● ●
-. ●
-● ●
+         ######OUTPUT
+         y
+         ● ●
+         . ●
+         ● ●
 
-o
-● .
-. ●
-● .
+         o
+         ● .
+         . ●
+         ● .
 
-u
-● .
-. .
-● ●
-
-
-a
-● .
-. .
-. .
-
-n
-● ●
-. ●
-● .
-
-d
-● ●
-. ●
-. .
+         u
+         ● .
+         . .
+         ● ●
 
 
-m
-● ●
-. .
-● .
+         a
+         ● .
+         . .
+         . .
 
-e
-● .
-. ●
-. .
+         n
+         ● ●
+         . ●
+         ● .
 
-h  e  l  l  o   f  r  i  e  n  d  s
-  
+         d
+         ● ●
+         . ●
+         . .
+
+
+         m
+         ● ●
+         . .
+         ● .
+
+         e
+         ● .
+         . ●
+         . .
+
+         h  e  l  l  o   f  r  i  e  n  d  s
+
 
 ###### TypeScript
-import {BrailleCodeGenerator} from 'braille-code-generator';
-const results = new BrailleCodeGenerator();
+        import {BrailleCodeGenerator} from 'braille-code-generator';
+        const results = new BrailleCodeGenerator();
 
-//convert from Alphabet Characters to Braille Characters
-results.convertToBraille("you and me");
+        //convert from Alphabet Characters to Braille Characters
+        results.convertToBraille("you and me");
 
-//decode from Braille Characters to Alphabet Characters
-braille
-  .addBrailleCode(["● .", "● ●", ". ."])
-  .addBrailleCode(["● .", ". ●", ". ."])
-  .addBrailleCode(["● .", "● .", "● ."])
-  .addBrailleCode(["● .", "● .", "● ."])
-  .addBrailleCode(["● .", ". ●", "● ."])
-  .space()
-  .addBrailleCode(["● ●", "● .", ". ."])
-  .addBrailleCode(["● .", "● ●", "● ."])
-  .addBrailleCode([". ●", "● .", ". ."])
-  .addBrailleCode(["● .", ". ●", ". ."])
-  .addBrailleCode(["● ●", ". ●", "● ."])
-  .addBrailleCode(["● ●", ". ●", ". ."])
-  .addBrailleCode([". ●", "● .", "● ."])
-  .converToCharacterString()
-  .output();
+        //decode from Braille Characters to Alphabet Characters
+        braille
+          .addBrailleCode(["● .", "● ●", ". ."])
+          .addBrailleCode(["● .", ". ●", ". ."])
+          .addBrailleCode(["● .", "● .", "● ."])
+          .addBrailleCode(["● .", "● .", "● ."])
+          .addBrailleCode(["● .", ". ●", "● ."])
+          .space()
+          .addBrailleCode(["● ●", "● .", ". ."])
+          .addBrailleCode(["● .", "● ●", "● ."])
+          .addBrailleCode([". ●", "● .", ". ."])
+          .addBrailleCode(["● .", ". ●", ". ."])
+          .addBrailleCode(["● ●", ". ●", "● ."])
+          .addBrailleCode(["● ●", ". ●", ". ."])
+          .addBrailleCode([". ●", "● .", "● ."])
+          .converToCharacterString()
+          .output();
 
-######OUTPUT
+        ######OUTPUT
 
-y
-● ●
-. ●
-● ●
+        y
+        ● ●
+        . ●
+        ● ●
 
-o
-● .
-. ●
-● .
+        o
+        ● .
+        . ●
+        ● .
 
-u
-● .
-. .
-● ●
-
-
-a
-● .
-. .
-. .
-
-n
-● ●
-. ●
-● .
-
-d
-● ●
-. ●
-. .
+        u
+        ● .
+        . .
+        ● ●
 
 
-m
-● ●
-. .
-● .
+        a
+        ● .
+        . .
+        . .
 
-e
-● .
-. ●
-. .
+        n
+        ● ●
+        . ●
+        ● .
 
-h  e  l  l  o   f  r  i  e  n  d  s
+        d
+        ● ●
+        . ●
+        . .
+
+
+        m
+        ● ●
+        . .
+        ● .
+
+        e
+        ● .
+        . ●
+        . .
+
+        h  e  l  l  o   f  r  i  e  n  d  s
 
