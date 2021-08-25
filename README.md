@@ -45,6 +45,7 @@ or more raised dots within a two-by-three cell. The dots of the cell are commonl
  That means we can apply what we've learned about Morse code and combinatorial analysis to Braille. We know that there are 6 dots 
  and that each dot can be either flat or raised, so the total number of combinations of 6 flat and raised dots is 2 x 2 x 2 x 2 x 2 x 2, 
  or 26, or 64.
+  > Copied from Charles Petzold [CODE]
 
 ##Braille, let's look at the basic lowercase alphabet
 ###### Every alphabet representation needs to be **tranposed in vertical**  form to see the the actual graphical representation
