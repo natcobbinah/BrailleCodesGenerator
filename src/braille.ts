@@ -1,10 +1,13 @@
+import { generateIdValue } from "./randomGen";
+
 export class BrailleCodeGenerator {
   //used [method chaining] to implement addBrailleCode
 
-  brailleCodesMap = new Map();
-  userEnteredBrailleCodes = new Map();
+  brailleCodesMap = new Map<String, String[]>();
+  userEnteredBrailleCodes = new Map<Number, String[]>();
   outputResult: string = "";
-  static brailleCodeCount = 0;
+  static brailleCodeCount: number = 0;
+  randomNumberiterator = generateIdValue(Math.random()*1009723);
 
   constructor() {
     this.brailleCodesMap
@@ -81,7 +84,7 @@ export class BrailleCodeGenerator {
    * formatting output
    */
   space() {
-    this.userEnteredBrailleCodes.set("", "  ");
+    this.userEnteredBrailleCodes.set(this.randomNumberiterator.next().value, [" ", " ", " "]);
     return this;
   }
 

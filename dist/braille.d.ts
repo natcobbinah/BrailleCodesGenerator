@@ -1,8 +1,9 @@
 export declare class BrailleCodeGenerator {
-    brailleCodesMap: Map<any, any>;
-    userEnteredBrailleCodes: Map<any, any>;
+    brailleCodesMap: Map<String, String[]>;
+    userEnteredBrailleCodes: Map<Number, String[]>;
     outputResult: string;
     static brailleCodeCount: number;
+    randomNumberiterator: any;
     constructor();
     /**
      * @returns String output after encoded or decoded operation

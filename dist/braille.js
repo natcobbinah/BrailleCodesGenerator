@@ -1,12 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BrailleCodeGenerator = void 0;
+const randomGen_1 = require("./randomGen");
 class BrailleCodeGenerator {
     constructor() {
         //used [method chaining] to implement addBrailleCode
         this.brailleCodesMap = new Map();
         this.userEnteredBrailleCodes = new Map();
         this.outputResult = "";
+        this.randomNumberiterator = randomGen_1.generateIdValue(Math.random() * 1009723);
         this.brailleCodesMap
             .set("a", ["● .", ". .", ". ."])
             .set("b", ["● .", "● .", ". ."])
@@ -74,7 +76,7 @@ class BrailleCodeGenerator {
      * formatting output
      */
     space() {
-        this.userEnteredBrailleCodes.set("", "  ");
+        this.userEnteredBrailleCodes.set(this.randomNumberiterator.next().value, [" ", " ", " "]);
         return this;
     }
     /**

@@ -1,6 +1,6 @@
 {
   "name": "braille-code-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,13 +12,22 @@
     "build": "tsc",
     "prepare": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natcobbinah/BrailleCodesGenerator"
+  },
   "keywords": [
     "braille-code-generator",
     "braille-code",
-    "Louis Braille"
+    "Louis Braille",
+    "braille",
+    "braille-dots"
   ],
   "author": "Nathaniel Cobbinah",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natcobbinah/BrailleCodesGenerator/issues"
+  },
   "devDependencies": {
     "typescript": "^4.3.5"
   },
